@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="PyQt5快速入门教程(三) — 常用控件回顾上节课 Qt Designer基础用法 让python显示我们画的ui什么你没有看? 好吧, 传送门走起  本节课内容 熟悉常用控件的功能 熟悉常用控件的命令 QLabel(标签) QPushButton(按钮) QLineEdit(编辑框) QComboBox(下拉框) QCheckBox(复选框) QRadioButton(单选框) QListWi">
-<meta name="keywords" content="PyQt5,Python">
+<meta name="keywords" content="Python,PyQt5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyQt5快速入门教程(三) --- 常用控件">
 <meta property="og:url" content="http://z31.ink/2019/04/02/PyQt5快速入门教程(三)常用控件/index.html">
@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://i1.bvimg.com/682239/0036607d05fdcfc7.png">
 <meta property="og:image" content="http://i1.bvimg.com/682239/c912746c43324b38.png">
 <meta property="og:image" content="http://i1.bvimg.com/682239/fcd89b3997efd4be.png">
-<meta property="og:updated_time" content="2019-04-02T10:02:37.571Z">
+<meta property="og:updated_time" content="2019-04-02T12:56:20.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt5快速入门教程(三) --- 常用控件">
 <meta name="twitter:description" content="PyQt5快速入门教程(三) — 常用控件回顾上节课 Qt Designer基础用法 让python显示我们画的ui什么你没有看? 好吧, 传送门走起  本节课内容 熟悉常用控件的功能 熟悉常用控件的命令 QLabel(标签) QPushButton(按钮) QLineEdit(编辑框) QComboBox(下拉框) QCheckBox(复选框) QRadioButton(单选框) QListWi">
@@ -407,7 +407,7 @@
                 
               
 
-              <time title="创建时间：2019-04-02 13:06:23 / 修改时间：18:02:37" itemprop="dateCreated datePublished" datetime="2019-04-02T13:06:23+08:00">2019-04-02</time>
+              <time title="创建时间：2019-04-02 13:06:23 / 修改时间：20:56:20" itemprop="dateCreated datePublished" datetime="2019-04-02T13:06:23+08:00">2019-04-02</time>
             
 
             
@@ -594,11 +594,54 @@
 </table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.comboBox.addItems([<span class="string">"选项1"</span>, <span class="string">"选项2"</span>, <span class="string">"选项3"</span>])  <span class="comment"># 添加多个选项</span></span><br><span class="line">self.comboBox.addItem(<span class="string">"选项4"</span>)  <span class="comment"># 添加单个选项</span></span><br><span class="line">self.comboBox.addItem(QIcon(<span class="string">"icon.png"</span>), <span class="string">"带图标的选项5"</span>)  <span class="comment"># 添加一个带图标的选项 图标为同目录下icon.png</span></span><br><span class="line">self.comboBox.setCurrentIndex(<span class="number">1</span>)  <span class="comment"># 设置选中第二个选项(第二个下标为1)</span></span><br><span class="line">self.comboBox.setCurrentText(<span class="string">"选项999"</span>)  <span class="comment"># 只有在editable选中时才有效</span></span><br><span class="line">print(self.comboBox.currentIndex())</span><br><span class="line">print(self.comboBox.currentText())</span><br><span class="line"></span><br><span class="line">self.comboBox.currentIndexChanged.connect(foo)  <span class="comment"># 当选项改变时执行foo</span></span><br><span class="line">self.comboBox.activated.connect(foo)  <span class="comment"># 当comboBox被选择时执行foo</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="QCheckBox-复选框"><a href="#QCheckBox-复选框" class="headerlink" title="QCheckBox(复选框)"></a>QCheckBox(复选框)</h3><p><strong>用于确定是否勾选</strong><br><img src="http://i1.bvimg.com/682239/d51c4d1f4e604afd.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/048c448363edfc18.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|text|显示文字|<br>|icon|显示图标|<br>|checkable|可否被选中|<br>|checked|设置已被选中状态|<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.checkBox.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.checkBox.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.checkBox.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中复选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.checkBox.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="QCheckBox-复选框"><a href="#QCheckBox-复选框" class="headerlink" title="QCheckBox(复选框)"></a>QCheckBox(复选框)</h3><p><strong>用于确定是否勾选</strong><br><img src="http://i1.bvimg.com/682239/d51c4d1f4e604afd.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/048c448363edfc18.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|text|显示文字|<br>|icon|显示图标|<br>|checkable|可否被选中|<br>|checked|设置已被选中状态|</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.checkBox.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.checkBox.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.checkBox.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中复选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.checkBox.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="QRadioButton-单选框"><a href="#QRadioButton-单选框" class="headerlink" title="QRadioButton(单选框)"></a>QRadioButton(单选框)</h3><p><strong>用于在多个选项中选择一个</strong><br><img src="http://i1.bvimg.com/682239/cd3781205353e9b9.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/41aebc0ab0fc89da.png" alt="Markdown"><br>代码和QCheckBox几乎是一样的<br>|属性名|说明|<br>|–|–|<br>|text|显示文字|<br>|icon|显示图标|<br>|checkable|可否被选中|<br>|checked|设置已被选中状态|<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.radioButton.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.radioButton.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.radioButton.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中单选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.radioButton.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="QRadioButton-单选框"><a href="#QRadioButton-单选框" class="headerlink" title="QRadioButton(单选框)"></a>QRadioButton(单选框)</h3><p><strong>用于在多个选项中选择一个</strong><br><img src="http://i1.bvimg.com/682239/cd3781205353e9b9.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/41aebc0ab0fc89da.png" alt="Markdown"><br>代码和QCheckBox几乎是一样的</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>显示文字</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>显示图标</td>
+</tr>
+<tr>
+<td>checkable</td>
+<td>可否被选中</td>
+</tr>
+<tr>
+<td>checked</td>
+<td>设置已被选中状态</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.radioButton.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.radioButton.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.radioButton.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中单选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.radioButton.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="QListWidget-列表框"><a href="#QListWidget-列表框" class="headerlink" title="QListWidget(列表框)"></a>QListWidget(列表框)</h3><p><strong>用于列出一堆东西, 比如日志/选项</strong><br><img src="http://i1.bvimg.com/682239/0cb359e780c69e53.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/bc23afecdc5baa68.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|currentRow|现行选中项|<br>右键点击第一项也会有一个设置选项的对话框<br><img src="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png" alt="Markdown"><br>ListWidget的功能就比较复杂了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.listWidget.addItems([<span class="string">"选项1"</span>, <span class="string">"选项2"</span>, <span class="string">"选项3"</span>])</span><br><span class="line">self.listWidget.addItem(<span class="string">"选项4"</span>)</span><br><span class="line">self.listWidget.insertItem(<span class="number">0</span>, <span class="string">"选项0"</span>)  <span class="comment"># 在0位置插入一个选项</span></span><br><span class="line"></span><br><span class="line">self.listWidget.setCurrentItem(self.listWidget.item(<span class="number">1</span>))  <span class="comment"># 设置当前选中项为1</span></span><br><span class="line">self.listWidget.sortItems()  <span class="comment"># 按升序重新排列条目</span></span><br><span class="line"></span><br><span class="line">print(self.listWidget.item(<span class="number">3</span>).text())  <span class="comment"># 打印索引为3的项目的文本</span></span><br><span class="line">print(self.listWidget.currentItem().text())  <span class="comment"># 打印现行选中项的文本</span></span><br><span class="line">print(self.listWidget.row(self.listWidget.currentItem()))  <span class="comment"># 打印现行选中项的索引</span></span><br><span class="line">self.listWidget.clear()  <span class="comment"># 清空列表</span></span><br><span class="line"></span><br><span class="line">self.listWidget.currentItemChanged.connect(foo)  <span class="comment"># 当列表中的条目发生改变时执行foo</span></span><br><span class="line">self.listWidget.itemClicked.connect(foo)  <span class="comment"># 当点击列表中的条目时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="QListWidget-列表框"><a href="#QListWidget-列表框" class="headerlink" title="QListWidget(列表框)"></a>QListWidget(列表框)</h3><p><strong>用于列出一堆东西, 比如日志/选项</strong><br><img src="http://i1.bvimg.com/682239/0cb359e780c69e53.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/bc23afecdc5baa68.png" alt="Markdown"></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentRow</td>
+<td>现行选中项</td>
+</tr>
+</tbody>
+</table>
+<p>右键点击第一项也会有一个设置选项的对话框<br><img src="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png" alt="Markdown"><br>ListWidget的功能就比较复杂了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.listWidget.addItems([<span class="string">"选项1"</span>, <span class="string">"选项2"</span>, <span class="string">"选项3"</span>])</span><br><span class="line">self.listWidget.addItem(<span class="string">"选项4"</span>)</span><br><span class="line">self.listWidget.insertItem(<span class="number">0</span>, <span class="string">"选项0"</span>)  <span class="comment"># 在0位置插入一个选项</span></span><br><span class="line"></span><br><span class="line">self.listWidget.setCurrentItem(self.listWidget.item(<span class="number">1</span>))  <span class="comment"># 设置当前选中项为1</span></span><br><span class="line">self.listWidget.sortItems()  <span class="comment"># 按升序重新排列条目</span></span><br><span class="line"></span><br><span class="line">print(self.listWidget.item(<span class="number">3</span>).text())  <span class="comment"># 打印索引为3的项目的文本</span></span><br><span class="line">print(self.listWidget.currentItem().text())  <span class="comment"># 打印现行选中项的文本</span></span><br><span class="line">print(self.listWidget.row(self.listWidget.currentItem()))  <span class="comment"># 打印现行选中项的索引</span></span><br><span class="line">self.listWidget.clear()  <span class="comment"># 清空列表</span></span><br><span class="line"></span><br><span class="line">self.listWidget.currentItemChanged.connect(foo)  <span class="comment"># 当列表中的条目发生改变时执行foo</span></span><br><span class="line">self.listWidget.itemClicked.connect(foo)  <span class="comment"># 当点击列表中的条目时执行foo</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 <h3 id="QTableWidget-表格"><a href="#QTableWidget-表格" class="headerlink" title="QTableWidget(表格)"></a>QTableWidget(表格)</h3><p><strong>顾名思义, 就是显示出一个表格</strong><br><img src="http://i1.bvimg.com/682239/0036607d05fdcfc7.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/c912746c43324b38.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/fcd89b3997efd4be.png" alt="Markdown"><br>由于表格的内容实在太多, 我推荐在这里详细学习<a href="https://blog.csdn.net/vah101/article/details/6215066" target="_blank" rel="noopener">传送门</a></p>
 <hr>
@@ -625,9 +668,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PyQt5/" rel="tag"># PyQt5</a>
-          
             <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/PyQt5/" rel="tag"># PyQt5</a>
           
         </div>
       
