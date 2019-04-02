@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="PyQt5快速入门教程(三) — 常用控件回顾上节课 Qt Designer基础用法 让python显示我们画的ui  什么你没有看? 好吧, 传送门走起 本节课内容 熟悉常用控件的功能 熟悉常用控件的命令 QLabel(标签) QLineEdit(编辑框) QComboBox(下拉框) QCheckBox(复选框) QRadioButton(单选框) QListWidget(列表框) QTabl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt5快速入门教程(三)---常用控件">
+<meta property="og:url" content="http://z31.ink/2019/04/02/PyQt5快速入门教程(三)常用控件/index.html">
+<meta property="og:site_name" content="雾之湖的秘密基地">
+<meta property="og:description" content="PyQt5快速入门教程(三) — 常用控件回顾上节课 Qt Designer基础用法 让python显示我们画的ui  什么你没有看? 好吧, 传送门走起 本节课内容 熟悉常用控件的功能 熟悉常用控件的命令 QLabel(标签) QLineEdit(编辑框) QComboBox(下拉框) QCheckBox(复选框) QRadioButton(单选框) QListWidget(列表框) QTabl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i2.bvimg.com/682239/39e14d6f1b274989.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/b203e80bcd61bd58.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/9413356edc534722.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/108241326b76f62c.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/4e2f072d63833b26.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/0476ae8568fb7735.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/da05917cef935fbf.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/b4faa8fa64c049f5.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/fbe5e7b7f7577a49.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/d51c4d1f4e604afd.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/048c448363edfc18.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/cd3781205353e9b9.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/41aebc0ab0fc89da.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/0cb359e780c69e53.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/bc23afecdc5baa68.png">
+<meta property="og:image" content="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/0036607d05fdcfc7.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/c912746c43324b38.png">
+<meta property="og:image" content="http://i1.bvimg.com/682239/fcd89b3997efd4be.png">
+<meta property="og:updated_time" content="2019-04-02T05:06:51.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PyQt5快速入门教程(三)---常用控件">
+<meta name="twitter:description" content="PyQt5快速入门教程(三) — 常用控件回顾上节课 Qt Designer基础用法 让python显示我们画的ui  什么你没有看? 好吧, 传送门走起 本节课内容 熟悉常用控件的功能 熟悉常用控件的命令 QLabel(标签) QLineEdit(编辑框) QComboBox(下拉框) QCheckBox(复选框) QRadioButton(单选框) QListWidget(列表框) QTabl">
+<meta name="twitter:image" content="http://i2.bvimg.com/682239/39e14d6f1b274989.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://z31.ink/2019/04/02/PyQt5快速入门教程(三)常用控件/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PyQt5快速入门教程(三)---常用控件 | 雾之湖的秘密基地</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雾之湖的秘密基地</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://z31.ink/2019/04/02/PyQt5快速入门教程(三)常用控件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon菌">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.bvimg.com/682239/1b85b317ed0ef7f2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雾之湖的秘密基地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PyQt5快速入门教程(三)---常用控件
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-02 13:06:23 / 修改时间：13:06:51" itemprop="dateCreated datePublished" datetime="2019-04-02T13:06:23+08:00">2019-04-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="PyQt5快速入门教程-三-—-常用控件"><a href="#PyQt5快速入门教程-三-—-常用控件" class="headerlink" title="PyQt5快速入门教程(三) — 常用控件"></a>PyQt5快速入门教程(三) — 常用控件</h1><h2 id="回顾上节课"><a href="#回顾上节课" class="headerlink" title="回顾上节课"></a>回顾上节课</h2><ul>
+<li>Qt Designer基础用法</li>
+<li>让python显示我们画的ui</li>
+</ul>
+<p><em>什么你没有看? 好吧, <a href="https://blog.csdn.net/qq_42436176/article/details/88922127" target="_blank" rel="noopener">传送门走起</a></em></p>
+<h2 id="本节课内容"><a href="#本节课内容" class="headerlink" title="本节课内容"></a>本节课内容</h2><ul>
+<li>熟悉常用控件的功能</li>
+<li>熟悉常用控件的命令<ul>
+<li>QLabel(标签)</li>
+<li>QLineEdit(编辑框)</li>
+<li>QComboBox(下拉框)</li>
+<li>QCheckBox(复选框)</li>
+<li>QRadioButton(单选框)</li>
+<li>QListWidget(列表框)</li>
+<li>QTableWidget(表格)</li>
+</ul>
+</li>
+</ul>
+<p>注: 本教程为快速入门, 只会讲最常见用法<br>若想深究, 请百度 PyQt5 + 控件名看详解</p>
+<h2 id="让咱们开始吧"><a href="#让咱们开始吧" class="headerlink" title="让咱们开始吧!"></a>让咱们开始吧!</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>使用的环境和ui都是上节课里的, 代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> my_first_ui <span class="keyword">import</span> *  <span class="comment"># 导入我们刚转换的ui</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWindows</span><span class="params">(Ui_MainWindow, QMainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(MyWindows, self).__init__()</span><br><span class="line">        self.setupUi(self)</span><br><span class="line">        self.demo()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        本节课所有的控件都在此函数里进行演示</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = QApplication(sys.argv)</span><br><span class="line">my_windows = MyWindows()  <span class="comment"># 实例化对象</span></span><br><span class="line">my_windows.show()  <span class="comment"># 显示窗口</span></span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="QLabel-标签"><a href="#QLabel-标签" class="headerlink" title="QLabel(标签)"></a>QLabel(标签)</h3><p><strong>Label用来显示一段文本, 一段html代码, 或者是一张图片</strong><br><img src="http://i2.bvimg.com/682239/39e14d6f1b274989.png" alt="Markdown"><br>QLabel有3个最常用属性<br>|属性名|说明|<br>|—|—|<br>|text|设置文字|<br>|pixmap|图片|<br>|scaledContents|图片缩放|</p>
+<p><img src="http://i2.bvimg.com/682239/b203e80bcd61bd58.png" alt="Markdown"><br>未缩放的状态<br><img src="http://i2.bvimg.com/682239/9413356edc534722.png" alt="Markdown"><br>缩放后状态<br><img src="http://i2.bvimg.com/682239/108241326b76f62c.png" alt="Markdown"></p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">self.label.setText(<span class="string">"文本"</span>)    <span class="comment"># 设置label的文本</span></span><br><span class="line">print(self.label.text())      <span class="comment"># 输出label的文本</span></span><br><span class="line"></span><br><span class="line">pic1 = QPixmap(<span class="string">"zfb.png"</span>)     <span class="comment"># 加载1.png</span></span><br><span class="line">pic1 = pic1.scaled(<span class="number">100</span>, <span class="number">200</span>)  <span class="comment"># 把图片缩放为(100, 200), 没有这一句则不缩放</span></span><br><span class="line">self.label.setPixmap(pic1)    <span class="comment"># 设置图片</span></span><br><span class="line"></span><br><span class="line">pic2 = QPixmap()</span><br><span class="line">url = <span class="string">"http://www.baidu.com/img/baidu_jgylogo3.gif"</span></span><br><span class="line">pic2.loadFromData(requests.get(url).content)  <span class="comment"># 从网络上加载图片</span></span><br><span class="line">self.label.setPixmap(pic2)  <span class="comment"># 设置图片</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="QLineEdit-编辑框"><a href="#QLineEdit-编辑框" class="headerlink" title="QLineEdit(编辑框)"></a>QLineEdit(编辑框)</h3><p><strong>用于输入一行数据, 如帐号, 密码</strong><br><img src="http://i1.bvimg.com/682239/4e2f072d63833b26.png" alt="Markdown"><br><img src="http://i2.bvimg.com/682239/0476ae8568fb7735.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|text|默认显示文字|<br>|maxLength|最大长度|<br>|echoMode|显示风格 例如普通输入和密码输入|<br>|readOnly|只读 只能看, 不能改|</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.lineEdit.setText(<span class="string">"Hello World"</span>)  <span class="comment"># 设置文字</span></span><br><span class="line">self.lineEdit.setEchoMode(QLineEdit.Normal)  <span class="comment"># 设置文本框的显示格式</span></span><br><span class="line"><span class="comment">#  QLineEdit.Normal 正常显示所输入的字符，此为默认选项</span></span><br><span class="line"><span class="comment">#  QLineEdit.NoEcho 不显示任何输入的字符，常用于密码类型的输入，且长度保密</span></span><br><span class="line"><span class="comment">#  QLineEdit.Password 显示与平台相关的密码掩饰字符</span></span><br><span class="line"><span class="comment">#  QLineEdit.PasswordEchoOnEdit 在编辑时显示字符，负责显示密码类型的输入</span></span><br><span class="line"></span><br><span class="line">self.lineEdit.setClearButtonEnabled(<span class="literal">True</span>)  <span class="comment"># 在编辑框右边加入一个清空按钮</span></span><br><span class="line">self.lineEdit.setMaxLength(<span class="number">10</span>)  <span class="comment"># 设置所允许输入的最大字符数为10</span></span><br><span class="line">self.lineEdit.setReadOnly(<span class="literal">True</span>)  <span class="comment"># 设置只读    False取消只读</span></span><br><span class="line"></span><br><span class="line">self.lineEdit.setFocus()  <span class="comment"># 获取焦点</span></span><br><span class="line">self.lineEdit.selectAll()  <span class="comment"># 全选</span></span><br><span class="line"></span><br><span class="line">self.lineEdit.editingFinished.connect(foo)  <span class="comment"># 按下返回或回车键或线条编辑失去焦点时 执行foo</span></span><br><span class="line">self.lineEdit.returnPressed.connect(foo)  <span class="comment"># 按下返回或回车键时 执行foo</span></span><br><span class="line">self.lineEdit.textChanged.connect(foo)  <span class="comment"># 只要文字发生变化就会 执行foo, 包括setText()</span></span><br><span class="line">self.lineEdit.textEdited.connect(foo)  <span class="comment"># 无论何时编辑文本都会 执行foo, 不包括setText()</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="QComboBox-下拉框"><a href="#QComboBox-下拉框" class="headerlink" title="QComboBox(下拉框)"></a>QComboBox(下拉框)</h3><p><strong>用于在多组数据中选择一个</strong><br><img src="http://i2.bvimg.com/682239/da05917cef935fbf.png" alt="Markdown"><br><img src="http://i2.bvimg.com/682239/b4faa8fa64c049f5.png" alt="Markdown"><br>右键选择第一项可编辑预设选项<br><img src="http://i2.bvimg.com/682239/fbe5e7b7f7577a49.png" alt="Markdown"><br><img src="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png" alt="Markdown"></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>editable</td>
+<td>可否编辑</td>
+</tr>
+<tr>
+<td>currentText</td>
+<td>现在文本 这个和下面那个同步</td>
+</tr>
+<tr>
+<td>currentIndex</td>
+<td>现行选中项</td>
+</tr>
+<tr>
+<td>maxVisibleItems</td>
+<td>下拉后最多显示多少项</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.comboBox.addItems([<span class="string">"选项1"</span>, <span class="string">"选项2"</span>, <span class="string">"选项3"</span>])  <span class="comment"># 添加多个选项</span></span><br><span class="line">self.comboBox.addItem(<span class="string">"选项4"</span>)  <span class="comment"># 添加单个选项</span></span><br><span class="line">self.comboBox.addItem(QIcon(<span class="string">"icon.png"</span>), <span class="string">"带图标的选项5"</span>)  <span class="comment"># 添加一个带图标的选项 图标为同目录下icon.png</span></span><br><span class="line">self.comboBox.setCurrentIndex(<span class="number">1</span>)  <span class="comment"># 设置选中第二个选项(第二个下标为1)</span></span><br><span class="line">self.comboBox.setCurrentText(<span class="string">"选项999"</span>)  <span class="comment"># 只有在editable选中时才有效</span></span><br><span class="line">print(self.comboBox.currentIndex())</span><br><span class="line">print(self.comboBox.currentText())</span><br><span class="line"></span><br><span class="line">self.comboBox.currentIndexChanged.connect(foo)  <span class="comment"># 当选项改变时执行foo</span></span><br><span class="line">self.comboBox.activated.connect(foo)  <span class="comment"># 当comboBox被选择时执行foo</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="QCheckBox-复选框"><a href="#QCheckBox-复选框" class="headerlink" title="QCheckBox(复选框)"></a>QCheckBox(复选框)</h3><p><strong>用于确定是否勾选</strong><br><img src="http://i1.bvimg.com/682239/d51c4d1f4e604afd.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/048c448363edfc18.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|text|显示文字|<br>|icon|显示图标|<br>|checkable|可否被选中|<br>|checked|设置已被选中状态|<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.checkBox.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.checkBox.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.checkBox.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中复选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.checkBox.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="QRadioButton-单选框"><a href="#QRadioButton-单选框" class="headerlink" title="QRadioButton(单选框)"></a>QRadioButton(单选框)</h3><p><strong>用于在多个选项中选择一个</strong><br><img src="http://i1.bvimg.com/682239/cd3781205353e9b9.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/41aebc0ab0fc89da.png" alt="Markdown"><br>代码和QCheckBox几乎是一样的<br>|属性名|说明|<br>|–|–|<br>|text|显示文字|<br>|icon|显示图标|<br>|checkable|可否被选中|<br>|checked|设置已被选中状态|<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">self.radioButton.setText(<span class="string">"测试文本"</span>)  <span class="comment"># 设置显示文字</span></span><br><span class="line">print(self.radioButton.isChecked())  <span class="comment"># True||False 打印是否被选中</span></span><br><span class="line">self.radioButton.setChecked(<span class="literal">True</span>)  <span class="comment"># 用代码选中单选框 False为不选中</span></span><br><span class="line"></span><br><span class="line">self.radioButton.stateChanged.connect(foo)  <span class="comment"># 选项改变时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="QListWidget-列表框"><a href="#QListWidget-列表框" class="headerlink" title="QListWidget(列表框)"></a>QListWidget(列表框)</h3><p><strong>用于列出一堆东西, 比如日志/选项</strong><br><img src="http://i1.bvimg.com/682239/0cb359e780c69e53.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/bc23afecdc5baa68.png" alt="Markdown"><br>|属性名|说明|<br>|–|–|<br>|currentRow|现行选中项|<br>右键点击第一项也会有一个设置选项的对话框<br><img src="http://i2.bvimg.com/682239/f6c4f4ef0454a60f.png" alt="Markdown"><br>ListWidget的功能就比较复杂了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args)</span>:</span></span><br><span class="line">    print(<span class="string">"foo被执行了, 带的数据是"</span>, args)</span><br><span class="line"></span><br><span class="line">self.listWidget.addItems([<span class="string">"选项1"</span>, <span class="string">"选项2"</span>, <span class="string">"选项3"</span>])</span><br><span class="line">self.listWidget.addItem(<span class="string">"选项4"</span>)</span><br><span class="line">self.listWidget.insertItem(<span class="number">0</span>, <span class="string">"选项0"</span>)  <span class="comment"># 在0位置插入一个选项</span></span><br><span class="line"></span><br><span class="line">self.listWidget.setCurrentItem(self.listWidget.item(<span class="number">1</span>))  <span class="comment"># 设置当前选中项为1</span></span><br><span class="line">self.listWidget.sortItems()  <span class="comment"># 按升序重新排列条目</span></span><br><span class="line"></span><br><span class="line">print(self.listWidget.item(<span class="number">3</span>).text())  <span class="comment"># 打印索引为3的项目的文本</span></span><br><span class="line">print(self.listWidget.currentItem().text())  <span class="comment"># 打印现行选中项的文本</span></span><br><span class="line">print(self.listWidget.row(self.listWidget.currentItem()))  <span class="comment"># 打印现行选中项的索引</span></span><br><span class="line">self.listWidget.clear()  <span class="comment"># 清空列表</span></span><br><span class="line"></span><br><span class="line">self.listWidget.currentItemChanged.connect(foo)  <span class="comment"># 当列表中的条目发生改变时执行foo</span></span><br><span class="line">self.listWidget.itemClicked.connect(foo)  <span class="comment"># 当点击列表中的条目时执行foo</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="QTableWidget-表格"><a href="#QTableWidget-表格" class="headerlink" title="QTableWidget(表格)"></a>QTableWidget(表格)</h3><p><strong>顾名思义, 就是显示出一个表格</strong><br><img src="http://i1.bvimg.com/682239/0036607d05fdcfc7.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/c912746c43324b38.png" alt="Markdown"><br><img src="http://i1.bvimg.com/682239/fcd89b3997efd4be.png" alt="Markdown"><br>由于表格的内容实在太多, 我推荐在这里详细学习<a href="https://blog.csdn.net/vah101/article/details/6215066" target="_blank" rel="noopener">传送门</a></p>
+<hr>
+<h2 id="本节课我们学习了基础控件的使用-下一节可我们将学习控件的交互还有信号与槽"><a href="#本节课我们学习了基础控件的使用-下一节可我们将学习控件的交互还有信号与槽" class="headerlink" title="本节课我们学习了基础控件的使用, 下一节可我们将学习控件的交互还有信号与槽"></a>本节课我们学习了基础控件的使用, 下一节可我们将学习控件的交互还有信号与槽</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/PyQt5快速入门教程(二)---QtDesigner基础操作/" rel="next" title="PyQt5快速入门教程(二) --- Qt Designer基础操作">
+                <i class="fa fa-chevron-left"></i> PyQt5快速入门教程(二) --- Qt Designer基础操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://i2.bvimg.com/682239/1b85b317ed0ef7f2.jpg" alt="Simon菌">
+            
+              <p class="site-author-name" itemprop="name">Simon菌</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/simonkimi" title="GitHub &rarr; https://github.com/simonkimi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:805757448@qq.com" title="E-Mail &rarr; mailto:805757448@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PyQt5快速入门教程-三-—-常用控件"><span class="nav-number">1.</span> <span class="nav-text">PyQt5快速入门教程(三) — 常用控件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾上节课"><span class="nav-number">1.1.</span> <span class="nav-text">回顾上节课</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本节课内容"><span class="nav-number">1.2.</span> <span class="nav-text">本节课内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让咱们开始吧"><span class="nav-number">1.3.</span> <span class="nav-text">让咱们开始吧!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.3.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QLabel-标签"><span class="nav-number">1.3.2.</span> <span class="nav-text">QLabel(标签)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QLineEdit-编辑框"><span class="nav-number">1.3.3.</span> <span class="nav-text">QLineEdit(编辑框)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QComboBox-下拉框"><span class="nav-number">1.3.4.</span> <span class="nav-text">QComboBox(下拉框)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QCheckBox-复选框"><span class="nav-number">1.3.5.</span> <span class="nav-text">QCheckBox(复选框)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QRadioButton-单选框"><span class="nav-number">1.3.6.</span> <span class="nav-text">QRadioButton(单选框)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QListWidget-列表框"><span class="nav-number">1.3.7.</span> <span class="nav-text">QListWidget(列表框)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QTableWidget-表格"><span class="nav-number">1.3.8.</span> <span class="nav-text">QTableWidget(表格)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本节课我们学习了基础控件的使用-下一节可我们将学习控件的交互还有信号与槽"><span class="nav-number">1.4.</span> <span class="nav-text">本节课我们学习了基础控件的使用, 下一节可我们将学习控件的交互还有信号与槽</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon菌</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
