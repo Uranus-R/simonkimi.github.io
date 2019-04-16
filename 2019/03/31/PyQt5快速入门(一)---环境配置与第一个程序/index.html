@@ -97,23 +97,22 @@
 
 
   <meta name="description" content="PyQt5快速入门(一)前言为什么选择PyQt5作为GUI框架? API与Qt一致, 学会PyQt后再使用qt很简单 开发迅速, 可视化操作,使用designer快速拖拽布局进行调试 可以将文件打包成exe进行发布  本节课内容（假设已经掌握python语法） 搭建PyQt5环境 测试PyQt5环境  本节课使用环境 python 3.6.6 IDLE(一般安装python后自带)   让我们正式">
-<meta name="keywords" content="Python,PyQt5">
+<meta name="keywords" content="PyQt5,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyQt5快速入门(一) --- 环境配置与第一个程序">
 <meta property="og:url" content="http://z31.ink/2019/03/31/PyQt5快速入门(一)---环境配置与第一个程序/index.html">
 <meta property="og:site_name" content="雾之湖的秘密基地">
 <meta property="og:description" content="PyQt5快速入门(一)前言为什么选择PyQt5作为GUI框架? API与Qt一致, 学会PyQt后再使用qt很简单 开发迅速, 可视化操作,使用designer快速拖拽布局进行调试 可以将文件打包成exe进行发布  本节课内容（假设已经掌握python语法） 搭建PyQt5环境 测试PyQt5环境  本节课使用环境 python 3.6.6 IDLE(一般安装python后自带)   让我们正式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i2.bvimg.com/682239/d40c0ad88ad2ded0.png">
-<meta property="og:image" content="http://i2.bvimg.com/682239/bdc16fbc2b6b2319.png">
-<meta property="og:image" content="http://i2.bvimg.com/682239/f436912144c8de89.png">
-<meta property="og:image" content="http://i2.bvimg.com/682239/dc33df8531927b07.png">
-<meta property="og:image" content="http://i2.bvimg.com/682239/9297cda11557836e.png">
-<meta property="og:updated_time" content="2019-04-01T10:09:22.189Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AxiMCV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AximEn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AxilgU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Axi1vF.png">
+<meta property="og:updated_time" content="2019-04-16T09:22:12.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt5快速入门(一) --- 环境配置与第一个程序">
 <meta name="twitter:description" content="PyQt5快速入门(一)前言为什么选择PyQt5作为GUI框架? API与Qt一致, 学会PyQt后再使用qt很简单 开发迅速, 可视化操作,使用designer快速拖拽布局进行调试 可以将文件打包成exe进行发布  本节课内容（假设已经掌握python语法） 搭建PyQt5环境 测试PyQt5环境  本节课使用环境 python 3.6.6 IDLE(一般安装python后自带)   让我们正式">
-<meta name="twitter:image" content="http://i2.bvimg.com/682239/d40c0ad88ad2ded0.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/16/AxiMCV.png">
 
 
 
@@ -407,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-01 18:09:22" itemprop="dateModified" datetime="2019-04-01T18:09:22+08:00">2019-04-01</time>
+                <time title="修改时间：2019-04-16 17:22:12" itemprop="dateModified" datetime="2019-04-16T17:22:12+08:00">2019-04-16</time>
               
             
           </span>
@@ -474,13 +473,13 @@
 </ul>
 <hr>
 <h2 id="让我们正式开始吧"><a href="#让我们正式开始吧" class="headerlink" title="让我们正式开始吧"></a>让我们正式开始吧</h2><h3 id="安装PyQt5"><a href="#安装PyQt5" class="headerlink" title="安装PyQt5"></a>安装PyQt5</h3><p>使用pip可以方便的安装, 命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pyqt5</span><br><span class="line">pip install pyqt5-tools</span><br></pre></td></tr></table></figure></p>
-<p>一个小坑: 使用最新版本的pyhton可能会报错, 因为还没有支持上<br>安装完成后会显示如图的 Successfully installed<br><img src="http://i2.bvimg.com/682239/d40c0ad88ad2ded0.png" alt="Markdown"></p>
-<p>同时python/Lib/site-packages目录下会多出如下文件夹<br><img src="http://i2.bvimg.com/682239/bdc16fbc2b6b2319.png" alt="Markdown"></p>
-<p><strong>将python/Lib/site-packages/pyqt5_tools/designer.exe创建快捷方式, 以后经常用到</strong><br><img src="http://i2.bvimg.com/682239/f436912144c8de89.png" alt="Markdown"></p>
+<p>一个小坑: 使用最新版本的pyhton可能会报错, 因为还没有支持上<br>安装完成后会显示如图的 Successfully installed<br><a href="https://imgchr.com/i/AxiMCV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/04/16/AxiMCV.png" alt="AxiMCV.png"></a></p>
+<p>同时python/Lib/site-packages目录下会多出如下文件夹<br><img src="https://s2.ax1x.com/2019/04/16/AximEn.png" alt="AximEn.png"></p>
+<p><strong>将python/Lib/site-packages/pyqt5_tools/designer.exe创建快捷方式, 以后经常用到</strong><br><img src="https://s2.ax1x.com/2019/04/16/AxilgU.png" alt="AxilgU.png"></p>
 <hr>
-<h3 id="测试PyQt5"><a href="#测试PyQt5" class="headerlink" title="测试PyQt5"></a>测试PyQt5</h3><p>新建一个python文件, 我命名为Hello World.py, 右键选择以IDLE打开, 粘贴以下代码<br><img src="http://i2.bvimg.com/682239/dc33df8531927b07.png" alt="Markdown"></p>
+<h3 id="测试PyQt5"><a href="#测试PyQt5" class="headerlink" title="测试PyQt5"></a>测试PyQt5</h3><p>新建一个python文件, 我命名为Hello World.py, 右键选择以IDLE打开, 粘贴以下代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtWidgets, QtCore</span><br><span class="line">app = QtWidgets.QApplication(sys.argv)</span><br><span class="line">widget = QtWidgets.QWidget()</span><br><span class="line">widget.resize(<span class="number">500</span>, <span class="number">500</span>)</span><br><span class="line">widget.setWindowTitle(<span class="string">'Hello World'</span>)</span><br><span class="line">widget.show()</span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
-<p><strong>按 ctrl+s 保存后再按 F5 运行, 如果出现以下界面则说明安装完成</strong><br><img src="http://i2.bvimg.com/682239/9297cda11557836e.png" alt="Markdown"></p>
+<p><strong>按 ctrl+s 保存后再按 F5 运行, 如果出现以下界面则说明安装完成</strong><br><a href="https://imgchr.com/i/Axi1vF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/04/16/Axi1vF.png" alt="Axi1vF.png"></a></p>
 <p>上述代码创建了一个500*500的窗口, 不要记上面的命令, 只用记住以下命令即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> *</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">中间的一堆代码</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">app = QApplication(sys.argv)</span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure></p>
 <p><strong>为了前期省事, 我这里直接import *, 请不要在正式开发中使用这个, 会导致exe极大(50Mb以上)</strong><br>至此, PyQt5环境正式搭建完成</p>
 <hr>
@@ -507,9 +506,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
             <a href="/tags/PyQt5/" rel="tag"># PyQt5</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
